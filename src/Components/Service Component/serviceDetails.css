@@ -1,7 +1,5 @@
-/* Inside your CSS file associated with ServiceDetails, e.g., AnimatePage.css */
 .ServiceDetails {
-    background-color: #e0f2f1; /* Light Blue or Teal */
-    /* Other CSS styles for the ServiceDetails component */
+    background-color: #e0f2f1; 
   }
   .service-details-description{
     font-size: medium;

@@ -18,7 +18,7 @@ const CheckoutPage = ({ location }) => {
 
   const { selectedServiceItems, category, customerDetails } = location.state.orderDetails;
   const { name: customerName, address: customerAddress, complaints } = customerDetails;
-  
+
   return (
     <Container style={{ marginTop: "3em" }}>
       <h2>Checkout</h2>

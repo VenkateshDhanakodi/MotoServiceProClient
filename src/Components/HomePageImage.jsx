@@ -54,7 +54,7 @@ function HomePageImage() {
           style={imageStyle}
           fluid
         />
-        <Carousel.Caption  className='captions'>
+        <Carousel.Caption className='captions'>
           <h1><span>Upgrade Your Ride</span></h1>
           <h5><span>Explore our upgrade options for an enhanced experience.</span></h5>
           <a href="#features" className="btn btn-primary">

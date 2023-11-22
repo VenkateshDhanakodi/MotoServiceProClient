@@ -1,8 +1,8 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import './ContactUsPage.css'; // Create a CSS file for additional styling
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './ContactUsPage.css';
 import Lottie from 'lottie-react';
-import ani from '../Assets/Animation/contactUs.json'; // Import your Lottie animation JSON
+import ani from '../Assets/Animation/contactUs.json';
 
 const ContactUsPage = () => {
     return (
@@ -13,7 +13,7 @@ const ContactUsPage = () => {
                     <Lottie animationData={ani} />
                 </div>
                 <div className="col-md-6">
-                    {/* Contact form or content on the right side */}
+                    {/* Contact form on the right side */}
                     <h2>Contact Us</h2>
                     <form>
                         <div className="form-group">

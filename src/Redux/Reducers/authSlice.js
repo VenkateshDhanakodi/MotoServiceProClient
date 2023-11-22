@@ -1,4 +1,3 @@
-// authSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -19,7 +18,7 @@ const initializeStateFromLocalStorage = () => {
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: initializeStateFromLocalStorage(), // Initialize from local storage
+  initialState: initializeStateFromLocalStorage(),
   reducers: {
     setAuth: (state, action) => {
       state.isAuthenticated = true;

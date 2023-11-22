@@ -7,49 +7,48 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setAuth } from '../../Redux/Reducers/authSlice';
-import {port} from '../../App'
+import { port } from '../../App'
 import { toast } from 'react-toastify';
 
 const AuthPage = () => {
-  const [isSignIn, setIsSignIn] = useState(true);
-  const [isSignUp, setIsSignUp] = useState(false);
-  const [isForgetPassword, setIsForgetPassword] = useState(false);
-  const navigate = useNavigate();
-  const dispatch = useDispatch(); // Redux dispatch
+    const [isSignIn, setIsSignIn] = useState(true);
+    const [isSignUp, setIsSignUp] = useState(false);
+    const [isForgetPassword, setIsForgetPassword] = useState(false);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-  // Function to toggle between Sign In, Sign Up, and Forget Password
-  const toggleForm = (formType) => {
-    setIsSignIn(formType === 'signIn');
-    setIsSignUp(formType === 'signUp');
-    setIsForgetPassword(formType === 'forgetPassword');
-  };
+    // Function to switch between Sign In, Sign Up, and Forget Password
+    const toggleForm = (formType) => {
+        setIsSignIn(formType === 'signIn');
+        setIsSignUp(formType === 'signUp');
+        setIsForgetPassword(formType === 'forgetPassword');
+    };
 
-  // Function to handle sign-in
-  const handleSignIn = async (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+    // Function to handle sign-in
+    const handleSignIn = async (event) => {
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
-    try {
-      const response = await axios.post(`${port}/api/signIn`, { email, password });
-      if (response.status === 200) {
-        const { userName, token } = response.data.user;
-        toast.success(`Welcome ${userName}`);
-        console.log('Sign-in success:', response.data);
-        // Dispatch the setAuth action to update the Redux store
-        dispatch(setAuth({ userName, token }));
-        navigate('/');
-      }
-    } catch (error) {
-        toast.error(error.response.data.message)
-        console.error('Sign-in error:', error);
-    }
-  };
-    
+        try {
+            const response = await axios.post(`${port}/api/signIn`, { email, password });
+            if (response.status === 200) {
+                const { userName, token } = response.data.user;
+                toast.success(`Welcome ${userName}`);
+                console.log('Sign-in success:', response.data);
+                // Updating the Redux store
+                dispatch(setAuth({ userName, token }));
+                navigate('/');
+            }
+        } catch (error) {
+            toast.error(error.response.data.message)
+            console.error('Sign-in error:', error);
+        }
+    };
+
     // Function to handle sign-up
     const handleSignUp = async (event) => {
         event.preventDefault();
-        // Get sign-up form data
         const formData = {
             firstName: event.target.firstName.value,
             lastName: event.target.lastName.value,
@@ -59,14 +58,10 @@ const AuthPage = () => {
         };
 
         try {
-            // Make a POST request to your sign-up API endpoint
             const response = await axios.post(`${port}/api/signUp`, formData);
-            // Handle successful sign-up, e.g., update user state
-            console.log('Sign-up success:', response.data);
             toast.success(response.data.message);
             navigate('/signin')
         } catch (error) {
-            // Handle sign-up error, e.g., display an error message
             toast.error(error.response.data.message)
             console.error('Sign-up error:', error);
         }
@@ -75,17 +70,13 @@ const AuthPage = () => {
     // Function to handle password reset
     const handlePasswordReset = async (event) => {
         event.preventDefault();
-        // Get the email for password reset
         const email = event.target.emailForgetPassword.value;
 
         try {
-            // Make a POST request to your password reset API endpoint
             const response = await axios.post(`${port}/api/forgetPassword`, { email });
-            // Handle successful password reset request
             console.log('Password reset request success:', response.data);
             toast.info(response.data.message);
         } catch (error) {
-            // Handle password reset request error
             toast.error(error.response.data.message);
             console.error('Password reset request error:', error);
         }
@@ -101,10 +92,10 @@ const AuthPage = () => {
                             isSignIn
                                 ? signInAni
                                 : isSignUp
-                                ? signUpAni
-                                : isForgetPassword
-                                ? signUpAni // Use different animation for Forget Password
-                                : null
+                                    ? signUpAni
+                                    : isForgetPassword
+                                        ? signUpAni
+                                        : null
                         }
                         className="animate"
                     />

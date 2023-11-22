@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './Components/HomePage';
 import AuthPage from './Components/Auth Pages/AuthPage';
-import NavBar from './Components/NavBar'; 
+import NavBar from './Components/NavBar';
 import BookService from './Components/Booking Component/BookService';
 import ServiceComponent from './Components/Service Component/ServiceComponent';
 import CheckoutPage from './Components/Booking Component/CheckoutPage';
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className='container-fluid'>
       <BrowserRouter>
-        <NavBar /> 
+        <NavBar />
         <br /><br />
         <Routes>
           <Route path='/signin' element={<AuthPage />} />

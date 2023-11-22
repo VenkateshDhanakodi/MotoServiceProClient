@@ -36,7 +36,7 @@ import SprocketsChains from '../../Assets/Images/Service Images/upgrade/Sprocket
 import EngineTuning from '../../Assets/Images/Service Images/upgrade/EngineTuning.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchServicesRequest, fetchServicesSuccess, fetchServicesFailure } from '../../Redux/Reducers/serviceSlice';
-
+import {port} from '../../App';
 function ServicesPage() {
   const dispatch = useDispatch();
   const { services, loading, error } = useSelector((state) => state.services);
@@ -45,33 +45,17 @@ function ServicesPage() {
     const fetchData = async () => {
       dispatch(fetchServicesRequest());
       try {
-        const response = await fetch('http://localhost:3377/service');
+        const response = await fetch(`${port}/service`);
         const data = await response.json();
         dispatch(fetchServicesSuccess(data.data));
       } catch (error) {
         dispatch(fetchServicesFailure(error.message));
       }
     };
-  
+
     fetchData();
   }, [dispatch]);
-  
-// const genItems = services[0].serviceItems;
-// const generalItems = genItems.map((e)=>{
-//   return e
-// })
-// const allServiceDescription = services.map((e)=>{
-//   return e.serviceItems
-// })
 
-// const generalServiceDescription = allServiceDescription[0];
-// const generalServiceItemsDescription = {};
-// generalServiceDescription.forEach((e, i) => {
-//   generalServiceItemsDescription["description" + (i + 1)] = e;
-// });
-// console.log(generalServiceItemsDescription);
-
-// console.log(generalItems);
   const generalServiceItems = [
     { image: engineOil, description: 'Engine Oil Change' },
     { image: oilFilter, description: 'Oil Filter Change' },
@@ -83,7 +67,7 @@ function ServicesPage() {
     { image: sparkPlug, description: 'Spark Plug Cleaning' },
     { image: bikeWashPolish, description: 'Bike Wash and Polish' }
   ];
-  
+
   const repairsServiceItems = [
     { image: overhaul, description: 'Engine Overhaul' },
     { image: brakeSystem, description: 'Brake Repair' },
@@ -96,7 +80,7 @@ function ServicesPage() {
     { image: oilFilterChange, description: 'Oil and Filter Change' },
     { image: batteryreplacement, description: 'Battery Replacement' }
   ];
-  
+
   const upgradesServiceItems = [
     { image: ExhaustSystems, description: 'Exhaust Systems' },
     { image: suspensionComponent, description: 'Suspension' },
@@ -109,14 +93,13 @@ function ServicesPage() {
     { image: SprocketsChains, description: 'Sprockets and Chains' },
     { image: EngineTuning, description: 'Engine Tuning' }
   ];
-  
-  // Define descriptions for each service category
+
   const serviceDescriptions = {
     'General Services': 'Our General Services are designed to keep your vehicle running smoothly. From routine oil changes to air filter cleaning, we provide essential maintenance to ensure your vehicle\'s longevity and performance. Trust our experienced mechanics to provide top-notch service for your everyday needs.',
     'Repairs': 'When your vehicle encounters unexpected issues, our Repair services have you covered. Our skilled technicians are equipped to diagnose and fix a wide range of problems, from brake issues to engine troubles. We prioritize safety and quality, so you can get back on the road with confidence.',
     'Upgrades': 'Looking to enhance your vehicle\'s performance or appearance? Our Upgrades category offers a range of options to personalize and optimize your ride. Whether it is adding advanced features or giving your vehicle a sleek makeover, we are here to help you take your driving experience to the next level.'
   };
-  
+
   const serviceListTag = {
     'General Services': "List Of General Services",
     'Repairs': "List of popular Repairs",
@@ -149,50 +132,50 @@ function ServicesPage() {
 
   return (
     <Container>
-            {loading ? (
+      {loading ? (
         <p>Loading...</p>
       ) : (<>
-      <h2 className="mt-4 mb-4" id="features">Our Services</h2>
+        <h2 className="mt-4 mb-4" id="features">Our Services</h2>
 
-      {/* Service Categories UI */}
-      <ServiceCategories
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onSelectCategory={handleCategoryClick}
-      />
-
-      {/* Service Details */}
-      {showServiceDetails && (
-        <ServiceDetails
-          category={selectedCategory}
-          description={description}
-          image={`img/${selectedCategory.replace(' ', '-').toLowerCase()}.png`}
+        {/* Service Categories UI */}
+        <ServiceCategories
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectCategory={handleCategoryClick}
         />
-      )}
 
-      <div className="list-of-services mt-4">
-        <p className="text-center inclusion">{serviceListTag[selectedCategory]}</p>
-        <div className="row last-row-container">
-          {selectedServiceItems?.map((item, index) => (
-            <div
-              key={index}
-              className="col-lg-3 col-md-4 col-sm-6 mb-3"
-            >
-              <div className="card service-card d-flex flex-column">
-                <img
-                  src={item.image}
-                  className="card-img-top service-item-image"
-                  alt={item.description}
-                  style={{ height: '200px', objectFit: 'cover' }}
-                />
-                <div className="card-body text-center flex-grow-1">
-                  <h5 className="card-title">{item.description}</h5>
+        {/* Service Details */}
+        {showServiceDetails && (
+          <ServiceDetails
+            category={selectedCategory}
+            description={description}
+            image={`img/${selectedCategory.replace(' ', '-').toLowerCase()}.png`}
+          />
+        )}
+
+        <div className="list-of-services mt-4">
+          <p className="text-center inclusion">{serviceListTag[selectedCategory]}</p>
+          <div className="row last-row-container">
+            {selectedServiceItems?.map((item, index) => (
+              <div
+                key={index}
+                className="col-lg-3 col-md-4 col-sm-6 mb-3"
+              >
+                <div className="card service-card d-flex flex-column">
+                  <img
+                    src={item.image}
+                    className="card-img-top service-item-image"
+                    alt={item.description}
+                    style={{ height: '200px', objectFit: 'cover' }}
+                  />
+                  <div className="card-body text-center flex-grow-1">
+                    <h5 className="card-title">{item.description}</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       </>)}
     </Container>
   );

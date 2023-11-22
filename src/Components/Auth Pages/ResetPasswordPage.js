@@ -13,14 +13,12 @@ function ResetPasswordPage() {
     const [cPassword, setcPassword] = useState('');
 
     useEffect(() => {
-        // Check if token is undefined or empty
+        // Checking token is undefined or empty
         if (!token) {
             return navigate('/invalidToken');
         }
     }, [token, navigate]);
 
-
-    // Check if token is undefined or empty
     if (!token) {
         return (
             <div id="content-wrapper" className="d-flex flex-column">
@@ -34,7 +32,7 @@ function ResetPasswordPage() {
             </div>
         );
     }
-    
+
     const handleResetPassword = async () => {
         try {
             const response = await axios.post(
@@ -45,7 +43,7 @@ function ResetPasswordPage() {
                 },
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`, // Send the token in the Authorization header
+                        Authorization: `Bearer ${token}`,
                     },
                 }
             );
@@ -67,7 +65,7 @@ function ResetPasswordPage() {
 
 
     return (
-        <div id="content-wrapper" className="d-flex flex-column" style={{margin: "5em", backgroundColor: "CaptionText"}}>
+        <div id="content-wrapper" className="d-flex flex-column" style={{ margin: "5em", backgroundColor: "CaptionText" }}>
             <div id="content">
                 <div className="container-fluid">
                     <div className="d-sm-flex align-items-center justify-content-center mb-4" style={{ textAlign: 'center' }}>

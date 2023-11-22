@@ -2,7 +2,7 @@ import React from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { Button, Container } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { updateOrderDetailsAsync } from '../../Redux/Reducers/Actions/orderActions'; // Update this path
+import { updateOrderDetailsAsync } from '../../Redux/Reducers/Actions/orderActions';
 
 const Checkout = ({ orderDetails }) => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Checkout = ({ orderDetails }) => {
 
     const cardElement = elements.getElement(CardElement);
 
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
     });
@@ -31,7 +31,6 @@ const Checkout = ({ orderDetails }) => {
       // dispatch(setSelectedServices(localSelectedServices));
       // dispatch(setTotalAmount(localTotalAmount));
       console.log('[PaymentMethod]', paymentMethod);
-      // Here you can send the paymentMethod.id to your server for payment processing
     }
   };
 

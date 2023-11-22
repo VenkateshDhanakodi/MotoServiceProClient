@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    brands: [],
-    selectedBrand: null,
-    models: [],
-    motorcycles: [],
-    loading: false,
-    error: null,
-  };
-  
+  brands: [],
+  selectedBrand: null,
+  models: [],
+  motorcycles: [],
+  loading: false,
+  error: null,
+};
+
 
 const motorcycleSlice = createSlice({
   name: "motorcycles",
@@ -19,10 +19,10 @@ const motorcycleSlice = createSlice({
       state.error = null;
     },
     fetchMotorcyclesSuccess: (state, action) => {
-        state.loading = false;
-        state.motorcycles = action.payload;
-        state.error = null;
-      },      
+      state.loading = false;
+      state.motorcycles = action.payload;
+      state.error = null;
+    },
     fetchMotorcyclesFailure: (state, action) => {
       state.loading = false;
       state.motorcycles = [];
@@ -38,8 +38,8 @@ const motorcycleSlice = createSlice({
       state.selectedBrand = action.payload;
     },
     setModels: (state, action) => {
-        state.models = action.payload;
-      }  
+      state.models = action.payload;
+    }
   },
 });
 
@@ -50,7 +50,7 @@ export const {
   fetchBrandsSuccess,
   fetchModelsSuccess,
   setSelectedBrand,
-  setModels 
+  setModels
 } = motorcycleSlice.actions;
 
 export default motorcycleSlice.reducer;

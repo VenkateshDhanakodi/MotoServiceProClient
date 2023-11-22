@@ -1,4 +1,3 @@
-//navBar.js file 123
 import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, Dropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -23,7 +22,7 @@ function NavBar() {
 
   const toggleNavbar = () => {
     if (isAuthenticated) {
-      dispatch(clearAuth()); // Dispatch the clearAuth action to clear the Redux store state
+      dispatch(clearAuth());
       navigate('/');
     }
   };
@@ -33,13 +32,13 @@ function NavBar() {
       setShowFullBrand(window.innerWidth >= 400);
     };
 
-    // Initial check
+    // Checking window width
     handleResize();
 
-    // Listen for window resize events
+    // Listening for window resize events
     window.addEventListener('resize', handleResize);
 
-    // Clean up event listener on component unmount
+    // Cleaning up event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -82,18 +81,18 @@ function NavBar() {
             </Link>
             {isAuthenticated ? (
               <Dropdown>
-              <Dropdown.Toggle variant="light" id="dropdown-basic">
-                {userName}
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item as={Link} to='/mybookings' className='user-name-dropdown'>
-                  My Bookings
-                </Dropdown.Item>
-                <Dropdown.Item onClick={toggleNavbar} className='user-name-dropdown'>
-                  Sign Out
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+                <Dropdown.Toggle variant="light" id="dropdown-basic">
+                  {userName}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item as={Link} to='/mybookings' className='user-name-dropdown'>
+                    My Bookings
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={toggleNavbar} className='user-name-dropdown'>
+                    Sign Out
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             ) : (
               <Link to='/signin' className='nav-link signIn'>
                 Sign In

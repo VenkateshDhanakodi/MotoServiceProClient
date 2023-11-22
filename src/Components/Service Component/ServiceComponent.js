@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchServicesRequest, fetchServicesSuccess, fetchServicesFailure } from '../../Redux/Reducers/serviceSlice';
-
+import { port } from '../../App'
 const ServiceComponent = () => {
   const dispatch = useDispatch();
   const { services, loading, error } = useSelector((state) => state.services);
@@ -10,11 +10,10 @@ const ServiceComponent = () => {
     const fetchData = async () => {
       dispatch(fetchServicesRequest());
       try {
-        // Fetch data from the API endpoint
-        const response = await fetch('http://localhost:3377/service');
+        // Fetching data from the API endpoint
+        const response = await fetch(`${port}/service`);
         const data = await response.json();
-        console.log(data);
-        dispatch(fetchServicesSuccess(data.data)); // Assuming the services are under the 'data' key in the response
+        dispatch(fetchServicesSuccess(data.data));
       } catch (error) {
         dispatch(fetchServicesFailure(error.message));
       }
@@ -24,7 +23,7 @@ const ServiceComponent = () => {
   }, [dispatch]);
 
   return (
-    <div style={{marginTop: "5em"}}>
+    <div style={{ marginTop: "5em" }}>
       <h1>Services</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}

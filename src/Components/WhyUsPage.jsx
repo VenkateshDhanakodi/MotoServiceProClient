@@ -16,13 +16,10 @@ function WhyUsPage() {
       setSmallScreen(window.innerWidth < 350);
     };
 
-    // Initial check
     handleResize();
 
-    // Listen for window resize events
     window.addEventListener('resize', handleResize);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -32,11 +29,10 @@ function WhyUsPage() {
     <Container className="why-us-container">
       <h2 className="text-center mt-4 mb-4" id='whyus'>Why Choose Us</h2>
       <Row>
-        {/* Reason 1: Quality Service */}
-        {/* <Col md={4} className="mb-4"> */}
+        {/* Quality Service */}
         <Col md={4} className={` ${smallScreen ? 'mb-4' : 'mb-8'}`}>
           <Card className="text-center">
-            <Image className='image-style' src= {quality} alt="Quality Service" fluid />
+            <Image className='image-style' src={quality} alt="Quality Service" fluid />
             <Card.Body>
               <Card.Title>Quality Service</Card.Title>
               <Card.Text>
@@ -46,10 +42,10 @@ function WhyUsPage() {
           </Card>
         </Col>
 
-        {/* Reason 2: Experienced Team */}
+        {/* Experienced Team */}
         <Col md={4} className={` ${smallScreen ? 'mb-4' : 'mb-8'}`}>
           <Card className="text-center">
-            <Image className='image-style' src= {experienceMechanic} alt="Experienced Team" fluid />
+            <Image className='image-style' src={experienceMechanic} alt="Experienced Team" fluid />
             <Card.Body>
               <Card.Title>Experienced Team</Card.Title>
               <Card.Text>
@@ -59,10 +55,10 @@ function WhyUsPage() {
           </Card>
         </Col>
 
-        {/* Reason 3: Customer Satisfaction */}
+        {/* Customer Satisfaction */}
         <Col md={4} className={` ${smallScreen ? 'mb-4' : 'mb-8'}`}>
           <Card className="text-center">
-            <Image className='image-style' src= {customeSatisfaction} alt="Customer Satisfaction" fluid />
+            <Image className='image-style' src={customeSatisfaction} alt="Customer Satisfaction" fluid />
             <Card.Body>
               <Card.Title>Customer Satisfaction</Card.Title>
               <Card.Text>
@@ -72,13 +68,6 @@ function WhyUsPage() {
           </Card>
         </Col>
       </Row>
-
-      {/* Call to Action */}
-      {/* <div className="text-center mt-5">
-        <h3>Ready to Experience Our Services?</h3>
-        <p>Contact us today to get started!</p>
-        <button className="btn btn-primary">Contact Us</button>
-      </div> */}
     </Container>
   );
 }
