@@ -26,8 +26,8 @@ function BookService() {
   const [selectedBrandText, setSelectedBrandText] = useState('');
   const [selectedModelText, setSelectedModelText] = useState('');
   const [localCustomerName, setLocalCustomerName] = useState('');
-  const [localSelectedServices, setLocalSelectedServices] = useState([]);
-  const [localTotalAmount, setLocalTotalAmount] = useState(0);
+  // const [localSelectedServices, setLocalSelectedServices] = useState([]);
+  // const [localTotalAmount, setLocalTotalAmount] = useState(0);
   const [localCustomerAddress, setLocalCustomerAddress] = useState({
     street: '',
     apartment: '',
