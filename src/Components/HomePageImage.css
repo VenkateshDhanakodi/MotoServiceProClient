@@ -1,0 +1,18 @@
+/* .carouselImage{
+    opacity: 0.9 !important;
+} */
+
+.captions span{
+    padding: 0 0.5em 0 0.5em;
+    font-weight:800;
+    background: black;
+    color: ghostwhite;
+    opacity: 0.5;
+}
+
+.captions h5 span{
+    padding: 0 0.5em 0 0.5em;
+    color: black;
+    background: ghostwhite;
+    opacity: 0.5;
+}

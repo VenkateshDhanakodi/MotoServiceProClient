@@ -1,0 +1,81 @@
+/* Container styling */
+.auth-container {
+    padding: 40px;
+    margin-top: 1em;
+    background-color: lightsteelblue; /* Light gray background color */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Page title styling */
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #fff;
+}
+
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Lottie animation styling */
+.animate {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Sign-in form styling */
+form {
+    padding: 20px;
+    background-color: #6696ac;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input fields styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Apply 10px padding to all input fields */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px; /* Adjusted padding to 10px */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+/* Submit button hover effect */
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Separate first name and last name on small screens */
+/* Separate first name and last name on small screens */
+@media (max-width: 768px) {
+    #firstName,
+    #lastName {
+        width: 100%;
+    }
+
+    #firstName {
+        margin-bottom: 10px;
+    }
+}
+

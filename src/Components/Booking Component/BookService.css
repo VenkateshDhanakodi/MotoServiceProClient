@@ -1,0 +1,118 @@
+.book-service-wrapper{
+    margin-top: 3em;
+    background-color: #e0f2f1;
+    width: 98%
+}
+
+h4{
+    margin: 0.5em;
+    color: black;
+    text-align: center;
+}
+
+.heading{
+    margin: 1em 4em 1em 4em;
+}
+
+.bike-details-selection{
+    list-style-type: none;
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    /* margin: 0 auto; */
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+/* .bike-details-selection-li{
+    width: max-content;
+} */
+
+.drop-down{
+    max-height: 10em;
+    overflow-y: scroll;
+    width: max-content;
+    z-index: 1000; /* Add this line */
+}
+
+
+#dropdown-basic{
+    width: max-content;
+    min-width: 3em;
+    text-align: left;
+    position: relative;
+}
+
+#category-offer-price {
+    padding: 0.5em;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    /* gap: 2em !important; */
+    align-items: center;
+    /* background-color: rgb(43, 41, 41); */
+    background-color: lightsteelblue;
+    /* color: whitesmoke; */
+    color: white;
+    font-weight: 500;
+}
+
+.door-step {
+    font-size: medium;
+    /* color: rgb(243, 184, 108); */
+    color: #000;
+    font-weight: 700;
+    /* background-color: rgb(24, 23, 23); */
+    padding: 0.5em;
+    border-left: 5px solid white;
+}
+
+.price {
+    font-size: medium;
+    /* color: rgb(243, 184, 108); */
+    color: #000;
+
+    font-weight: 700;
+    /* background-color: rgb(24, 23, 23); */
+    padding: 0.5em;
+    border-left: 5px solid white;
+}
+
+.address-item{
+    min-width: 19em;
+}
+
+.address-field{
+    margin-bottom: 0.2em;
+}
+
+.complaints{
+    min-height: 10em;
+    /* background-color: aqua; */
+}
+.complaints-inputbox{
+    height: 100%;
+    min-width: 15em;
+}
+.row{
+    margin-right: 0px !important;
+}
+
+.dropdown-toggle::after{
+    margin-left: 2.5em;
+}
+
+@media only screen and (max-width: 594px) {
+    #category-offer-price {
+        gap: 1em !important;
+        margin-bottom: 4px !important;
+    }
+    .heading{
+        margin: 1em;
+    }
+    .book-service-wrapper{
+        width: 100%;
+    }
+  }
+  

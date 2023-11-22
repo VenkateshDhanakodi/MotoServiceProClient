@@ -1,0 +1,10 @@
+#whyus{
+    margin-top: 2em !important;
+}
+.image-style:hover{
+  transform: scale(1.05); 
+  transition: transform 1s ease; 
+}
+.card:hover{
+    transform: scale(1) !important;
+}

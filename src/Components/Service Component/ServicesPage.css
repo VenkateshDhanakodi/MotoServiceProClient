@@ -1,0 +1,123 @@
+/* CSS in your stylesheet or inline styles */
+.service-card {
+    max-width: 200px;
+    margin: 0 auto;
+    display: flex; /* Use flexbox to control card layout */
+    flex-direction: column; /* Stack elements vertically */
+  }
+  
+  .service-item-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+  }
+  
+  .animation-container {
+    width: 300px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+}
+
+  .card{
+    transition: transform 0.2s ease-in-out; /* Add a transition effect to smooth the scaling */
+  }
+
+  /* CSS in your stylesheet or inline styles */
+  .card:hover {
+    transform: scale(1.05); /* Increase the scale on hover to create a zoom-in effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .card-body {
+    background-color: lightsteelblue;
+    color: #000000;
+    /* background-color: #c0cfe5;
+    color: #000000; */
+    flex-grow: 1; /* Allow the card-body to expand and fill remaining space */
+    display: flex; /* Use flexbox to control card-body layout */
+    flex-direction: column; /* Stack elements vertically within card-body */
+    justify-content: space-between; /* Align elements vertically */
+  }
+  
+  .card-title{
+    color: #3a3a9b !important;
+    min-height: 2.2em;
+  }
+
+  .inclusion{
+    font-weight: 700;
+    height: 2.5em;
+    padding: 1em;
+    font-size: larger;
+    border-bottom: 5px solid #3a3a9b;
+    margin: 1em;
+    text-overflow: clip;
+  }
+
+  /* CSS in your stylesheet or inline styles */
+/* CSS in your stylesheet or inline styles */
+/* .bike-wash-card, .center-card  {
+    margin-left: auto;
+    margin-right: auto;
+    display: table; 
+  } */
+
+  /* CSS in your stylesheet or inline styles */
+.small-card .card-img-top {
+    height: auto; /* Reset the height for these cards */
+  }
+  
+  .small-image {
+    height: 100px; /* Set the desired fixed height for these specific cards */
+    object-fit: cover;
+  }  
+
+  /* .mt-4{
+    margin-top: 0 !important;
+  }
+   */
+  .list-of-services{
+    background-color: #e0f2f1;
+    margin-bottom: 0.7em;
+    /* margin-top: 0 !important; */
+    /* background-color: #e0f2f1;  */
+    /* background-image: url('../Assets//Images/Service Images/colors-bg.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;  */
+  } 
+  
+  /* Add this CSS in your stylesheet or inline styles */
+.last-row-container {
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; 
+}
+
+/* CSS in your stylesheet or inline styles */
+/* Default layout for larger screens */
+@media (min-width: 1200px) {
+    .col-lg-3 {
+      flex-basis: 25%;
+      max-width: 25%;
+    }
+  }
+  
+  /* Layout for medium screens (between 768px and 1199px) */
+  @media (max-width: 1199px) {
+    .col-md-4 {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Layout for small screens (up to 767px) */
+  @media (max-width: 767px) {
+    .col-sm-6 {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  
