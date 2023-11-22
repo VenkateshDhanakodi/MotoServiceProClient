@@ -9,7 +9,8 @@ import CheckoutPage from './Components/Booking Component/CheckoutPage';
 import ResetPasswordPage from './Components/Auth Pages/ResetPasswordPage';
 import ResetPasswordRouting from './Components/Auth Pages/ResetPasswordRouting';
 
-export const port = "http://localhost:3377";
+// export const port = "http://localhost:3377";
+export const port = "https://motoserviceproserver.onrender.com";
 
 function App() {
   return (
