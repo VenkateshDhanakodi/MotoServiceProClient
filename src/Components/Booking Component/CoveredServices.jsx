@@ -15,7 +15,7 @@ export const CoveredServices = ({ category, onBookServiceClick }) => {
     const fetchData = async () => {
       dispatch(fetchServicesRequest());
       try {
-        const response = await fetch(`${port}/${category}`);
+        const response = await fetch(`${port}/service/${category}`);
         const data = await response.json();
         dispatch(fetchServicesSuccess(data.data));
 
